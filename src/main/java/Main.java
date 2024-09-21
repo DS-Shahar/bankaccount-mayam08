@@ -1,29 +1,37 @@
+import java.util.*;
 
 public class Main {
+	static Scanner input = new Scanner(System.in);
+
 	public static void main(String[] args) {
-		BankAccount lisa = new BankAccount(1000, -1000, "lisa");
-        BankAccount bob = new BankAccount(1000, -1000, "bob");
-//		System.out.println(acct1.getBalance());
 		
-//		acct1.withdraw(300);
-//		System.out.println(acct1.getBalance());
-//
-	//	acct1.deposit(300);
-//		System.out.println(acct1.getBalance());
-//
-		System.out.println(bob);
-		System.out.println(lisa);
+		System.out.print("Enter length then width: ");
+		int l= input.nextInt();
+		int w = input.nextInt();
+		Rectangle rec = new Rectangle(l, w);
 		
-		lisa.transfer(bob, 500);
+		System.out.print("Enter length then width: ");
+		int length = input.nextInt();
+		int width = input.nextInt();
+		Rectangle rec2 = new Rectangle(length, width);
 		
-		System.out.println(bob);
-		System.out.println(lisa);
+		rec.draw(rec.getLength(), rec.getWidth());
+		rec2.draw(rec2.getLength(), rec2.getWidth());
 		
-		boolean transfer = lisa.transfer(bob, 1600);
+		rec.scale(2);
 		
-		if (transfer == false) {
-			System.out.println("not enough money in account");
-		}
+		int p1 =rec.calcPerimeter(rec.getLength(), rec.getWidth());
+		int p2 =rec2.calcPerimeter(rec2.getLength(), rec2.getWidth());
+
+		System.out.println("The perimeter sum is: " + (p1 + p2));
 		
+		System.out.println(rec);
+		System.out.println(rec2);
+
+		
+		System.out.print("Enter radius: ");
+		double r= input.nextDouble();
+		Circle c2 = new Circle(r);
+		System.out.print(calcArea(r));
 	}
 }
